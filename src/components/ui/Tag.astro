@@ -1,0 +1,25 @@
+---
+const { tag, isLast} = Astro.props as {
+    tag: string
+    isLast: boolean
+}
+---
+
+
+<span class="tag">
+    {tag}
+        {!isLast && <span class="separator">·</span>}
+  </span>
+
+  <style>
+    .tag {
+      color: #bbbbbb;
+      font-size: small;
+      text-transform: capitalize;
+    }
+
+    .separator {
+      color: #bbbbbb;
+      font-size: small;
+    }
+  </style>

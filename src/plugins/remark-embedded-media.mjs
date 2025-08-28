@@ -100,35 +100,6 @@ const embedHandlers = {
     `
   },
 
-  // Bilibili
-  bilibili: (node) => {
-    let bvid = node.attributes?.id ?? ''
-    const url = node.attributes?.url ?? ''
-    if (!bvid && url) {
-      const match = url.match(/\/BV([\w]+)/)
-      if (match) bvid = 'BV' + match[1]
-    }
-    if (!bvid) {
-      return false
-    }
-
-    return `
-    <figure>
-      <iframe
-        style="border-radius:6px"
-        src="//player.bilibili.com/player.html?isOutside=true&bvid=${bvid}&p=1&autoplay=0&muted=0"
-        title="Bilibili video player"
-        loading="lazy"
-        scrolling="no"
-        border="0"
-        frameborder="no"
-        framespacing="0"
-        allowfullscreen="true"
-      ></iframe>
-    </figure>
-    `
-  },
-
   // X Post Card
   x: (node) => {
     const xUrl = node.attributes?.url ?? ''
@@ -192,26 +163,6 @@ const embedHandlers = {
     `
   },
 
-  // NeoDB Card
-  neodb: (node) => {
-    const url = node.attributes?.url ?? ''
-    if (!url) {
-      return false
-    }
-
-    const neodbUrlPattern =
-      /neodb\.social\/(movie|book|music|album|game|tv\/season|tv|podcast)\/([\w-]+)/
-    const match = url.match(neodbUrlPattern)
-    const category = match ? match[1] : 'other'
-
-    const isSquare = category === 'music' || category === 'album' || category === 'podcast'
-    const skeletonClass = isSquare ? 'music' : 'other'
-
-    return `<div class="neodb-card-container" data-url="${url}">
-  <div class="neodb-card neodb-loading ${skeletonClass}">
-  </div>
-</div>`
-  }
 }
 
 export default function remarkEmbeddedMedia() {

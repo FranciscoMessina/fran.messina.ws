@@ -12,14 +12,14 @@ import ImageOptimizer from '@/components/ui/ImageOptimizer.astro'
 import ImageViewer from '@/components/ui/ImageViewer.astro'
 import GitHubCard from '@/components/ui/GitHubCard.astro'
 import LinkCard from '@/components/ui/LinkCard.astro'
-import NeoDBCard from '@/components/ui/NeoDBCard.astro'
 import XPOST from '@/components/ui/XPOST.astro'
 import CopyCode from '@/components/ui/CopyCode.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 import { themeConfig } from '@/config'
+import Tag from '@/components/ui/Tag.astro'
 
-const { title, pubDate, readingTime, toc } = Astro.props as PostLayoutProps
+const { title, pubDate, readingTime, toc, tags } = Astro.props as PostLayoutProps
 
 const postSlug = Astro.url.pathname.split('/').filter(Boolean).pop() || ''
 const ogImage = `/open-graph/${postSlug}.png`
@@ -55,6 +55,15 @@ const ogImage = `/open-graph/${postSlug}.png`
               )
             }
           </div>
+          {
+            tags && (
+              <div class="tags">
+                {tags.map((tag, index) => (
+                  <Tag tag={tag} isLast={!(index < tags.length - 1)} />
+                ))}
+              </div>
+            )
+          }
         </div>
         <slot />
       </div>
@@ -64,7 +73,6 @@ const ogImage = `/open-graph/${postSlug}.png`
     <CopyCode />
     <GitHubCard />
     <XPOST />
-    <NeoDBCard />
     {themeConfig.post.imageViewer && <ImageViewer />}
     {themeConfig.post.linkCard && <LinkCard />}
     {themeConfig.general.footer && <Footer />}
@@ -80,5 +88,13 @@ const ogImage = `/open-graph/${postSlug}.png`
 
   .post-container main {
     flex: 1;
+  }
+
+  .tags {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
   }
 </style>

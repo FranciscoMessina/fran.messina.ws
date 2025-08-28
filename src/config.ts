@@ -4,17 +4,17 @@ export const themeConfig: ThemeConfig = {
   // SITE INFO ///////////////////////////////////////////////////////////////////////////////////////////
   site: {
     website: 'https://astro-chiri.netlify.app/', // Site domain
-    title: 'CHIRI', // Site title
-    author: '3ASH', // Author name
-    description: 'Minimal blog built by Astro', // Site description
+    title: 'Fran Messina', // Site title
+    author: 'Fran Messina', // Author name
+    description: '', // Site description
     language: 'en-US' // Default language
   },
 
   // GENERAL SETTINGS ////////////////////////////////////////////////////////////////////////////////////
   general: {
-    contentWidth: '35rem', // Content area width
+    contentWidth: '40rem', // Content area width
     centeredLayout: true, // Use centered layout (false for left-aligned)
-    themeToggle: false, // Show theme toggle button (uses system theme by default)
+    themeToggle: true, // Show theme toggle button (uses system theme by default)
     postListDottedDivider: false, // Show dotted divider in post list
     footer: true, // Show footer
     fadeAnimation: true // Enable fade animations

@@ -2,15 +2,14 @@
 title: 'About'
 ---
 
-<!--
-This content will be displayed at the top of the index page.
-You can leave this empty if you don’t want to show any content.
--->
+Hey there! I'm Fran, an aspiring developer and Computer Engineering student at UADE, based in the city of Buenos Aires, Argentina.
 
-A static blog theme based on [Astro](https://astro.build), designed for clarity and focus.
+Technologies I have worked with: TypeScript, CSS, HTML, Python, Java, Tailwind, Docker, C#, React, Node.js, Bun, Nest.js, Git, SQL, PHP, Laravel
 
-With a deliberately minimal design, this layout ensures your content takes center stage. It's built for flexibility, offering customization options that honor its clean and elegant aesthetic.
+Technologies I want to explore: Go, Rust, Tauri, React Native
 
-Effortlessly share your thoughts in _a calm & dustless space._
+I like reading books (mainly fantasy, Brandon Sanderson is a personal favorite), taking pictures. And probably some other things as well.
 
-Check posts for details and view source on [GitHub](https://github.com/the3ash/astro-chiri).
+Feel free to reach out through [X](https://x.com/franmessina_)
+
+[GitHub](https://github.com/FranciscoMessina), [LinkedIn](https://www.linkedin.com/in/francisco-messina/)

@@ -2,6 +2,7 @@
 import FormattedDate from '@/components/widgets/FormattedDate.astro'
 import type { PostListProps } from '@/types'
 import { themeConfig } from '@/config'
+import Tag from '@/components/ui/Tag.astro'
 
 const { posts } = Astro.props as PostListProps
 ---
@@ -28,6 +29,12 @@ const { posts } = Astro.props as PostListProps
                 <FormattedDate date={post.data.pubDate} context="list" />
               </p>
             )}
+          </div>
+          <div class="tags">
+            Tags:{' '}
+            {post.data.tags?.map((tag, index) => (
+              <Tag tag={tag} isLast={!(index < (post.data.tags?.length ?? 0) - 1)} />
+            ))}
           </div>
         </a>
       </li>
@@ -141,5 +148,14 @@ const { posts } = Astro.props as PostListProps
 
   .placeholder {
     height: 3rem;
+  }
+
+  .tags {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: -0.5rem;
+    color: #777777;
+    font-size: 12px;
   }
 </style>
