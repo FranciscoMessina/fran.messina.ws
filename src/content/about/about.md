@@ -4,7 +4,7 @@ title: 'About'
 
 Hey there! I'm Fran, an aspiring developer and Computer Engineering student at UADE, based in the city of Buenos Aires, Argentina.
 
-Technologies I have worked with: TypeScript, CSS, HTML, Python, Java, Tailwind, Docker, C#, React, Node.js, Bun, Nest.js, Git, SQL, PHP, Laravel
+Technologies I have worked with: TypeScript, CSS, HTML, Python, Java, Tailwind, Docker, C#, React, Node.js, Bun, Nest.js, Git, SQL, PHP, Laravel, Unity
 
 Technologies I want to explore: Go, Rust, Tauri, React Native
 
