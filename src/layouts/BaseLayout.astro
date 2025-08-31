@@ -1,11 +1,10 @@
 ---
-import { themeConfig } from '@/config'
-import { getPathByLocale } from 'astro:i18n'
-import { ClientRouter } from 'astro:transitions'
-import ThemeManager from '@/components/ui/ThemeManager.astro'
-import FaviconThemeSwitcher from '@/components/ui/FaviconThemeSwitcher.astro'
 import TransitionWrapper from '@/components/layout/TransitionWrapper.astro'
+import FaviconThemeSwitcher from '@/components/ui/FaviconThemeSwitcher.astro'
+import ThemeManager from '@/components/ui/ThemeManager.astro'
+import { themeConfig } from '@/config'
 import type { LayoutProps } from '@/types'
+import { ClientRouter } from 'astro:transitions'
 
 type Props = LayoutProps
 
