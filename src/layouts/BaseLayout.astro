@@ -1,5 +1,6 @@
 ---
 import { themeConfig } from '@/config'
+import { getPathByLocale } from 'astro:i18n'
 import { ClientRouter } from 'astro:transitions'
 import ThemeManager from '@/components/ui/ThemeManager.astro'
 import FaviconThemeSwitcher from '@/components/ui/FaviconThemeSwitcher.astro'
@@ -9,7 +10,13 @@ import type { LayoutProps } from '@/types'
 type Props = LayoutProps
 
 const { type = 'page' } = Astro.props
-const language = themeConfig.site.language || 'en-US'
+const language = (() => {
+  const current = Astro.currentLocale ?? 'en'
+  // Map locale code to a BCP47 lang value for <html lang>
+  if (current === 'en') return 'en-US'
+  if (current === 'es') return 'es-ES'
+  return themeConfig.site.language || 'en-US'
+})()
 const contentWidth = themeConfig.general.contentWidth
 const fadeAnimation = themeConfig.general.fadeAnimation
 const widthValue = Math.min(parseFloat(contentWidth), 50)

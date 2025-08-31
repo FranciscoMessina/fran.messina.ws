@@ -19,6 +19,17 @@ import netlify from '@astrojs/netlify'
 export default defineConfig({
   adapter: netlify(), // Set adapter for deployment, or set `linkCard` to `false` in `src/config.ts`
   site: themeConfig.site.website,
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+    fallback: {
+      es: 'en'
+    },
+    routing: {
+      prefixDefaultLocale: true,
+      fallbackType: 'rewrite'
+    }
+  },
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',

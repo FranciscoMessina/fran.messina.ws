@@ -1,12 +1,17 @@
 ---
 import { themeConfig } from '@/config'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import LanguagePicker from '@/components/ui/LanguagePicker.astro'
 import ThemeToggle from '@/components/ui/ThemeToggle.astro'
 ---
 
 <header>
   <nav>
-    <a href="/">{themeConfig.site.title}</a>
-    <ThemeToggle />
+    <a href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en')}>{themeConfig.site.title}</a>
+    <div style="display: inline-flex; gap: 0.75rem; align-items: center;">
+      <LanguagePicker />
+      <ThemeToggle />
+    </div>
   </nav>
 </header>
 <style>

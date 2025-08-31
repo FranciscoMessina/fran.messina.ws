@@ -1,0 +1,48 @@
+---
+import { getRelativeLocaleUrl, getPathByLocale } from 'astro:i18n'
+---
+
+<nav class="language-picker">
+  {
+    ['en', 'es'].map((locale) => {
+      const current = Astro.currentLocale ?? 'en'
+      const localePath = getPathByLocale(current)
+      const pathname = Astro.url.pathname
+      let rest = ''
+      if (pathname !== '/' && pathname !== '') {
+        const withoutLeading = pathname.replace(/^\//, '')
+        if (withoutLeading === localePath) {
+          rest = ''
+        } else if (withoutLeading.startsWith(localePath + '/')) {
+          rest = withoutLeading.slice(localePath.length + 1)
+        } else {
+          rest = withoutLeading
+        }
+      }
+      const href = rest ? getRelativeLocaleUrl(locale, rest) : getRelativeLocaleUrl(locale)
+      return (
+        <a href={href} class={current === locale ? 'active' : ''}>{locale}</a>
+      )
+    })
+  }
+  <style>
+    .language-picker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    
+    }
+    .language-picker a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-family: var(--serif);
+      font-style: italic;
+    }
+    .language-picker a.active {
+      color: var(--text-primary);
+      font-weight: var(--font-weight-bold);
+    }
+  </style>
+</nav>
+
+

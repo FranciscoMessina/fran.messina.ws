@@ -1,8 +1,12 @@
 ---
 import { getEntry } from 'astro:content'
+import { getPathByLocale } from 'astro:i18n'
 import { render } from 'astro:content'
 
-const aboutEntry = await getEntry('about', 'about')
+const current = Astro.currentLocale ?? 'en'
+const pathPrefix = getPathByLocale(current)
+const id = pathPrefix === 'es' ? 'es/about' : 'about'
+const aboutEntry = await getEntry('about', id)
 // Check if there is actual content (excluding comments)
 const hasContent = aboutEntry?.body
   ? aboutEntry.body.replace(/<!--[\s\S]*?-->/g, '').trim().length > 0

@@ -6,7 +6,7 @@ import { render } from 'astro:content'
 export async function getStaticPaths() {
   const posts = await getCollection('posts')
   return posts
-    .filter((post) => !post.id.startsWith('_'))
+    .filter((post) => !post.id.startsWith('_') && !post.id.startsWith('es/'))
     .map((post) => ({
       params: { slug: post.id },
       props: post
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
 type Props = CollectionEntry<'posts'>
 
-const post = Astro.props
+const post = Astro.props as Props
 const { Content, remarkPluginFrontmatter } = await render(post)
 
 const readingTime = remarkPluginFrontmatter.readingTime
@@ -25,3 +25,5 @@ const toc = remarkPluginFrontmatter.toc || []
 <PostLayout {...post.data} readingTime={readingTime} toc={toc}>
   <Content />
 </PostLayout>
+
+
