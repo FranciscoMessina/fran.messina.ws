@@ -13,7 +13,7 @@ import rehypeCopyCode from './src/plugins/rehype-copy-code.mjs'
 import remarkTOC from './src/plugins/remark-toc.mjs'
 import { themeConfig } from './src/config'
 import { imageConfig } from './src/utils/image-config'
-import path from 'path'
+import path from 'node:path'
 import netlify from '@astrojs/netlify'
 
 export default defineConfig({
@@ -26,8 +26,7 @@ export default defineConfig({
       es: 'en'
     },
     routing: {
-      prefixDefaultLocale: true,
-      fallbackType: 'rewrite'
+      prefixDefaultLocale: false
     }
   },
   image: {
