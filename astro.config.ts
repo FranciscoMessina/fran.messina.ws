@@ -24,10 +24,6 @@ export default defineConfig({
     defaultLocale: 'en',
     fallback: {
       es: 'en'
-    },
-    routing: {
-      prefixDefaultLocale: false,
-      fallbackType: 'redirect'
     }
   },
   image: {
